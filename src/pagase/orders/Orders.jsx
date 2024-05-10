@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AoutContext } from '../../provaider/AoutProvider';
 import OrderRow from './OrderRow';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 
 const Orders = () => {
@@ -74,6 +75,9 @@ const Orders = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Orders</title>
+            </Helmet>
             <p className='text-4 font-bold text-center text-lime-600'>your order list : {orders.length}</p>
             <div className="overflow-x-auto">
                 <table className="table">

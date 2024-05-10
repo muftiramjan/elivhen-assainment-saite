@@ -1,16 +1,27 @@
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 
-import benar2 from "../../assets/images/banner/2.jpg"
-import benar3 from "../../assets/images/banner/3.jpg"
-import benar4 from "../../assets/images/banner/4.jpg"
-import benar5 from "../../assets/images/banner/5.jpg"
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import slaid1 from "../../assets/img/1.jpg"
+import slaid2 from "../../assets/img/4 (2).jpg"
+import slaid3 from "../../assets/img/3.jpg"
+import slaid4 from "../../assets/img/4.jpg"
 
 const Benar = () => {
     return (
         <div loop={true} className="carousel h-[600px] mt-4 ">
             <div id="slide1" className="carousel-item relative w-full">
-                <img src={benar5} className="w-full rounded-xl" />
-                <div className="absolute left-0 right-0 h-full rounded-xl flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
+                <img src={slaid1} className="w-full rounded-xl" />
+                <div className="absolute left-0 right-0 h-full rounded-xl flex items-center ">
                     <div className="space-y-7 w-1/2 pl-7">
                         <h1 className="text-4xl font-bold text-white">
                             Affordable Price <br /> For Car <br /> Servicing
@@ -26,8 +37,8 @@ const Benar = () => {
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
-                <img src={benar2} className="w-full rounded-xl" />
-                <div className="absolute left-0 right-0  rounded-xl h-full flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
+                <img src={slaid2} className="w-full rounded-xl" />
+                <div className="absolute left-0 right-0  rounded-xl h-full flex items-center ">
                     <div className="space-y-7 w-1/2 pl-7">
                         <h1 className="text-4xl font-bold text-white">
                             Affordable Price <br /> For Car <br /> Servicing
@@ -43,8 +54,8 @@ const Benar = () => {
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full">
-                <img src={benar3} className="w-full rounded-xl" />
-                <div className="absolute left-0 right-0 h-full rounded-xl flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
+                <img src={slaid3} className="w-full rounded-xl" />
+                <div className="absolute left-0 right-0 h-full rounded-xl flex items-center ">
                     <div className="space-y-7 w-1/2 pl-7 ">
                         <h1 className="text-4xl font-bold text-white">
                             Affordable Price <br /> For Car <br /> Servicing
@@ -60,8 +71,8 @@ const Benar = () => {
                 </div>
             </div>
             <div id="slide4" className="carousel-item relative w-full">
-                <img src={benar4} className="w-full rounded-xl" />
-                <div className="absolute left-0 right-0 h-full  rounded-xl flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
+                <img src={slaid4} className="w-full rounded-xl" />
+                <div className="absolute left-0 right-0 h-full  rounded-xl flex items-center ">
                     <div className="space-y-7 w-1/2 pl-7 ">
                         <h1 className="text-4xl font-bold text-white">
                             Affordable Price <br /> For Car <br /> Servicing
@@ -77,8 +88,8 @@ const Benar = () => {
                 </div>
             </div>
             <div id="slide5" className="carousel-item relative w-full">
-                <img src={benar5} className="w-full rounded-xl" />
-                <div className="absolute left-0 right-0 h-full rounded-xl  flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
+                <img src={slaid1} className="w-full rounded-xl" />
+                <div className="absolute left-0 right-0 h-full rounded-xl  flex items-center ">
                     <div className="space-y-7 w-1/2 pl-7 rounded-xl">
                         <h1 className="text-4xl font-bold text-white">
                             Affordable Price <br /> For Car <br /> Servicing

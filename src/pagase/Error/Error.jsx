@@ -5,7 +5,7 @@ const Error = () => {
         <div>
             <section>
 
-<div class="bg-black text-white">
+<div class="bg-black text-white w-[550px] min-h-screen">
     <div class="flex h-screen">
         <div class="m-auto text-center">
             <div>

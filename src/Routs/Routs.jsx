@@ -7,7 +7,8 @@ import Checout from "../pagase/cecoutpagase/Checout";
 import Orders from "../pagase/orders/Orders";
 import PraivhetRout from "./PraivhetRout";
 import Error from "../pagase/Error/Error";
-import TabsCard from "../pagase/Home/TabsCard";
+import AvailableFoods from "../pagase/AvailableFoods.jsx/AvailableFoods";
+
 // import About from "../pagase/Home/About";
 
 
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
                 path: "/singup",
                 element: <SingUp></SingUp>
             },
-            // {
-            //     path: "/jobs",
-            //     element: <TabsCard></TabsCard>,
+            {
+                path: "/AvailableFoods",
+                element: <AvailableFoods></AvailableFoods>
                 
-            // },
+            },
             {
                 path: "/checout/:id",
                 element: <PraivhetRout><Checout></Checout></PraivhetRout>,

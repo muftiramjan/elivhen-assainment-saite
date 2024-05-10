@@ -14,7 +14,8 @@ const SingUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const Password = form.Password.value;
-        console.log(name, email, Password)
+        const PhotoURL = form.PhotoURL.value;
+        console.log(name, email, Password,PhotoURL)
 
         createuser(email, Password)
             .then(Result => {
@@ -51,6 +52,12 @@ const SingUp = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" placeholder="email" name="email" className="input input-bordered"  />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">PhotoURL</span>
+                                </label>
+                                <input type="PhotoURL" placeholder="PhotoURL" name="PhotoURL" className="input input-bordered"  />
                             </div>
                             <div className="form-control">
                                 <label className="label">

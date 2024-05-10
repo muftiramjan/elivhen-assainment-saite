@@ -12,9 +12,12 @@ const Sarvises = () => {
     }, [cards])
     return (
         <div className="text-center p-5 mt-10">
-            <h3 className="text-1xl font-bold text-[#ff3411]">Service</h3>
-            <h1 className="text-5xl font-bold">Our Service Area</h1>
-            <p>the majority have suffered alteration in some form, by injected humour,<br /> or randomised words which dont look even slightly believable. </p>
+            <h1 className="text-5xl font-bold">Food A Reflection of Culture</h1>
+            <p>Food is not just sustenance; it's a profound force that inspires humanity.
+                 It embodies culture, connecting us to a rich tapestry of experiences, literature, 
+                 <br />traditions, and societal norms. From its diverse forms to its flavors, health 
+                benefits, transmission, and its relationship with the environment, food seamlessly 
+                 <br /> integrates into every aspect of our lives, serving as an essential component of our existence. </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 
                 {

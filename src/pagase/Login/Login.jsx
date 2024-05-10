@@ -5,6 +5,7 @@ import { AoutContext } from "../../provaider/AoutProvider";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { signin, GoogleLogin } = useContext(AoutContext);
@@ -50,7 +51,13 @@ const Login = () => {
     }
 
     return (
+
         <div className="hero min-h-screen bg-base-200">
+            <div>
+                <Helmet>
+                    <title>Login</title>
+                </Helmet>
+            </div>
             <div className="hero-content flex-col lg:flex-row ">
 
                 <div className="text-center lg:text-left w-1/2">
