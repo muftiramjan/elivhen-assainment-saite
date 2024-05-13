@@ -15,10 +15,16 @@ const SarvisesCard = ({ card }) => {
         <p className="text-blue-500"><span className="font-bold text-black">pickup_location</span> {pickup_location}</p>
         <p className="text-blue-500"><span className="font-bold text-black">expired_datetime</span> {expired_datetime}</p>
       
-        <div className="flex justify-between space-x-20">
+        <div className="flex justify-between space-x-2">
         <div className="card-actions">
           <Link to={`/checout/${_id}`}>
             <button className="btn btn-outline">Book Now</button>
+          </Link>
+          
+        </div>
+        <div className="card-actions">
+          <Link to='/Foods'>
+            <button className="btn btn-outline">Show All</button>
           </Link>
           
         </div>
