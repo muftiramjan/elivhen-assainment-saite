@@ -5,14 +5,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Checout = () => {
     const servis = useLoaderData();
-    const { donator_name, food_image,food_name,food_quantity,additional_notes,pickup_location} = servis;
+    const { donator_name, food_image,food_name,food_quantity,additional_notes,pickup_location,donator_image} = servis;
     const { user } = useContext(AoutContext)
     const handelorder = e => {
         e.preventDefault();
         const form = e.target;
-        const name =form.name.value;
+        const donator_name =user?.displayName;
         const email =user?.email;
-        const donator_image =form.donator_image.value;
+        const donator_image =user?.photoURL;
         const food_image =form.food_image.value;
         const food_name =form.food_name.value;
         const food_quantity =form.food_quantity.value;
@@ -21,12 +21,10 @@ const Checout = () => {
         const pickup_location =form.pickup_location.value;
 
         const order ={
-            castmarname: name,
-            email,donator_image,food_quantity,date,additional_notes,pickup_location,food_image,
-            food_name
+            donator_name: donator_name,donator_image,
+            email,food_quantity,date,additional_notes,pickup_location,food_image,
+            food_name}
 
-
-        }
         console.log(order);
         fetch('http://localhost:5000/order',{
             method: 'POST',
@@ -52,9 +50,9 @@ const Checout = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">customerName </span>
+                                <span className="label-text">donator_name</span>
                             </label>
-                            <input type="text" name='name' defaultValue={user?.displayName} className="input input-bordered" />
+                            <input type="text" name='donator_name' defaultValue={donator_name} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
