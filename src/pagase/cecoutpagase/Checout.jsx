@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Checout = () => {
     const servis = useLoaderData();
     const { donator_name, food_image,food_name,food_quantity,additional_notes,pickup_location,donator_image} = servis;
-    const { user } = useContext(AoutContext)
+    const { user } = useContext(AoutContext);
     const handelorder = e => {
         e.preventDefault();
         const form = e.target;
@@ -21,7 +21,7 @@ const Checout = () => {
         const pickup_location =form.pickup_location.value;
 
         const order ={
-            donator_name: donator_name,donator_image,
+            castmarname: donator_name,donator_image,
             email,food_quantity,date,additional_notes,pickup_location,food_image,
             food_name}
 
@@ -52,7 +52,7 @@ const Checout = () => {
                             <label className="label">
                                 <span className="label-text">donator_name</span>
                             </label>
-                            <input type="text" name='donator_name' defaultValue={donator_name} className="input input-bordered" />
+                            <input type="text" name='donator_name' defaultValue={user?.displayName} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

@@ -25,7 +25,7 @@ const Sarvises = () => {
             background:'gray',
             transformOrigin:'%0'
         }}
-        className="text-center p-1 mt-10">
+        className="text-center p-1 mt-10 rounded-full">
         </motion.div>
           <div className="text-center p-5 mt-10">
           <h1 className="text-5xl font-bold">Food A Reflection of Culture</h1>

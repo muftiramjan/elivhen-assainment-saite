@@ -31,7 +31,7 @@ const Foods = () => {
 
     return (
         <>
-            <div className='flex items-center justify-around'>
+            <div className='flex items-center justify-around bg-slate-400 w-100%'>
                 <input
                     type="text"
                     placeholder="Search by food name..."
