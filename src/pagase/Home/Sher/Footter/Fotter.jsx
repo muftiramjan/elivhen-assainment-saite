@@ -1,10 +1,18 @@
 
-
+import { Player } from '@lottiefiles/react-lottie-player';
 const Fotter = () => {
   return (
     <footer className="footer p-10 bg-base-200 text-base-content">
       <aside>
-        <img className="w-16" src="https://image.similarpng.com/very-thumbnail/2020/08/Fresh-food-logo-design-on-transparent-background-PNG.png" alt="" />
+
+      <Player 
+				autoplay
+				loop
+				src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json"
+				style={{ height: '150px', width: '150px' }}
+			>
+			</Player>
+
         <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
       </aside>
       <nav>
@@ -21,6 +29,7 @@ const Fotter = () => {
         <a className="link link-hover">Jobs</a>
         <a className="link link-hover">Press kit</a>
       </nav>
+    
       <nav>
         <h6 className="footer-title">Legal</h6>
         <a className="link link-hover">Terms of use</a>

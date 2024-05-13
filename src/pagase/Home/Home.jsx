@@ -5,7 +5,7 @@ import Sarvises from './saeveses/Sarvises';
 import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
-	
+
 	return (
 		<div>
 			<div>
@@ -13,11 +13,10 @@ const Home = () => {
 					<title>Home</title>
 				</Helmet>
 			</div>
-			<Benar></Benar>			
-		
+			<Benar></Benar>
+
 			<Sarvises></Sarvises>
-
-
+			
 		</div>
 	);
 };
