@@ -34,13 +34,13 @@ const AoutProvider = ({ children }) => {
             setuser(currentcuser);
             console.log('currentuser', currentcuser);
             setLoding(false)
-            if (currentcuser) {
-                const loggrUser={ email: currentcuser.email}
-                axios.post('http://localhost:5000/jwt',loggrUser,{withCredentials: true })
-                    .then(res => {
-                        console.log('token res pons',res.data);
-                    })
-            }
+            // if (currentcuser) {
+            //     const loggrUser={ email: currentcuser.email}
+            //     axios.post('http://localhost:5000/jwt',loggrUser,{withCredentials: true })
+            //         .then(res => {
+            //             console.log('token res pons',res.data);
+            //         })
+            // }
         });
         return () => {
             return unsubscribe();
