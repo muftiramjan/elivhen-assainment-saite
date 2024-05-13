@@ -1,10 +1,10 @@
-import logo from "../../../../assets/icons/logo.svg"
+
 
 const Fotter = () => {
   return (
     <footer className="footer p-10 bg-base-200 text-base-content">
       <aside>
-        <img src={logo} alt="" />
+        <img className="w-16" src="https://image.similarpng.com/very-thumbnail/2020/08/Fresh-food-logo-design-on-transparent-background-PNG.png" alt="" />
         <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
       </aside>
       <nav>
