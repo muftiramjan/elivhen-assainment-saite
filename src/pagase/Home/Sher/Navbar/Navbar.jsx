@@ -21,7 +21,7 @@ const Navbar = () => {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><Link>HOme</Link></li>
             <li>
-              <li><Link to="AvailableFoods">AvailableFoods</Link></li>
+              <li><Link to="Foods">AvailableFoods</Link></li>
               <ul className="p-2">
                 <li><a>Submenu 1</a></li>
                 <li><a>Submenu 2</a></li>
@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className="navbar-end">
             {
               user? <>
-                <li><Link to="/orders">my orders</Link></li>
+                <li><Link to="/myorder">my orders</Link></li>
                 <li><button onClick={handelesignOut}>logOut</button></li>
               </> :
                 <li><Link to="/Login">Login</Link></li>
@@ -49,11 +49,11 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">
           <li><Link>HOme</Link></li>
-          <li><Link to="AvailableFoods">AvailableFoods</Link></li>
+          <li><Link to="Foods">AvailableFoods</Link></li>
       
           {
             user ? <>
-              <li><Link to="/orders">my orders</Link></li>
+              <li><Link to="/myorder">my orders</Link></li>
               <li><button onClick={handelesignOut}>signOut</button></li>
             </> :
               <li><Link to="/Login">Login</Link></li>}

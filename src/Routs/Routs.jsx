@@ -4,12 +4,13 @@ import Home from "../pagase/Home/Home";
 import Login from "../pagase/Login/Login";
 import SingUp from "../pagase/singup/SingUp";
 import Checout from "../pagase/cecoutpagase/Checout";
-import Orders from "../pagase/orders/Orders";
 import PraivhetRout from "./PraivhetRout";
 import Error from "../pagase/Error/Error";
-import AvailableFoods from "../pagase/AvailableFoods.jsx/AvailableFoods";
+import Carditels from "../pagase/Home/saeveses/Carditels";
+import Myorder from "../pagase/orders/Myorder";
+import Update from "../pagase/orders/Update";
+import Foods from "../pagase/Foods";
 
-// import About from "../pagase/Home/About";
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch(`${import.meta.env.VITE_API_URL}/tabs`),
+              
             },
             {
                 path: "Login",
@@ -32,9 +33,19 @@ const router = createBrowserRouter([
                 element: <SingUp></SingUp>
             },
             {
-                path: "/AvailableFoods",
-                element: <AvailableFoods></AvailableFoods>
-                
+                path: "/Foods",
+                element: <Foods></Foods>,
+                loader: () => fetch('http://localhost:5000/orderss'),
+            },
+            {
+                path: "/update",
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
+
+            },
+            {
+                path: "/myorder",
+                element: <PraivhetRout><Myorder></Myorder></PraivhetRout>
             },
             {
                 path: "/checout/:id",
@@ -42,12 +53,11 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/carServes/${params.id}`)
             },
             {
-                path: "/orders",
-                element: <PraivhetRout>
-                          <Orders></Orders>
-                        </PraivhetRout>
-
+                path: "/checoutt/:id",
+                element: <PraivhetRout><Carditels></Carditels></PraivhetRout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/carServes/${params.id}`)
             },
+            
 
         ]
     },

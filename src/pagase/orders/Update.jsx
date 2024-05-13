@@ -1,54 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AoutContext } from '../../provaider/AoutProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Checout = () => {
+const Update = () => {
     const servis = useLoaderData();
-    const { donator_name, food_image,food_name,food_quantity,additional_notes,pickup_location} = servis;
+    const { donator_name, food_image,  food_quantity, additional_notes, pickup_location } = servis;
     const { user } = useContext(AoutContext)
-    const handelorder = e => {
+    const {orders ,setorders}=useState([]);
+    const handeleconfrim = e => {
         e.preventDefault();
         const form = e.target;
-        const name =form.name.value;
-        const email =user?.email;
-        const donator_image =form.donator_image.value;
-        const food_image =form.food_image.value;
-        const food_name =form.food_name.value;
-        const food_quantity =form.food_quantity.value;
-        const date =form.date.value;
-        const additional_notes =form.additional_notes.value;
-        const pickup_location =form.pickup_location.value;
+        const name = form.name.value;
+        const email = user?.email;
+        const donator_image = form.donator_image.value;
+        const food_image = form.food_image.value;
+        const food_quantity = form.food_quantity.value;
+        const date = form.date.value;
+        const additional_notes = form.additional_notes.value;
+        const pickup_location = form.pickup_location.value;
 
-        const order ={
+        const order = {
             castmarname: name,
-            email,donator_image,food_quantity,date,additional_notes,pickup_location,food_image,
-            food_name
+            email, donator_image, food_quantity, date, additional_notes, pickup_location, food_image
 
 
         }
         console.log(order);
-        fetch('http://localhost:5000/order',{
-            method: 'POST',
-            headers:{
-                'content-type' : 'application/json'
-            },
-            body:JSON.stringify(order)
-        })
-        .then(res => res.json())
-        .then(data => {{
-            console.log(data);
-            if(data.insertedId){
-                toast.success('database storege  sussecfull')
+        // const handeleconfrim = id => {
+            fetch(`http://localhost:5000/orders/${id}`,{
+                method:"PATCH",
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({status: 'confrim'})
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.modifiedCount){
+                        // updet
+                        const remaining = orders.filter(order => order._id !== id)
+                        const update =orders.find(order => order._id === id)
+                        update.status= 'confrim'
+                        const neworders=[update,...remaining];
+                        setorders(neworders)
+    
+                    }
+                })
             }
-        }})
-
-    }
+        
     return (
         <div>
             <p>{donator_name}</p>
             <div className="card-body">
-                <form onSubmit={handelorder}>
+                <form onSubmit={handeleconfrim}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         <div className="form-control">
                             <label className="label">
@@ -60,21 +66,14 @@ const Checout = () => {
                             <label className="label">
                                 <span className="label-text">food_image</span>
                             </label>
-                            <input type="food_image" name='food_image' defaultValue={food_image} className="input input-bordered"  />
-
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">food_name</span>
-                            </label>
-                            <input type="food_name" name='food_name' defaultValue={food_name} className="input input-bordered"  />
+                            <input type="food_image" name='food_image' defaultValue={food_image} className="input input-bordered" />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' defaultValue={user?.email} className="input input-bordered"  />
+                            <input type="email" name='email' defaultValue={user?.email} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -93,29 +92,29 @@ const Checout = () => {
                             <label className="label">
                                 <span className="label-text">date</span>
                             </label>
-                            <input type="date" name='date' className="input input-bordered"  />
+                            <input type="date" name='date' className="input input-bordered" />
 
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">additional_notes</span>
                             </label>
-                            <input type="additional_notes" name='additional_notes' defaultValue={additional_notes} className="input input-bordered"  />
+                            <input type="additional_notes" name='additional_notes' defaultValue={additional_notes} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">pickup_location</span>
                             </label>
-                            <input type="pickup_location" name='pickup_location' defaultValue={pickup_location} className="input input-bordered"  />
+                            <input type="pickup_location" name='pickup_location' defaultValue={pickup_location} className="input input-bordered" />
 
                         </div>
 
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn btn-primary" type="submit" value="submit" />
+                        <input  className="btn btn-primary" type="submit" value="submit" />
                     </div>
                 </form>
-<ToastContainer />
+                <ToastContainer />
             </div>
         </div>
 
@@ -124,4 +123,4 @@ const Checout = () => {
     );
 };
 
-export default Checout;
+export default Update;

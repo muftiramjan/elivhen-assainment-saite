@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SarvisesCard from "./SarvisesCard";
 
 
+
 const Sarvises = () => {
     const [cards, setCard] = useState([]);
     useEffect(() => {
@@ -28,6 +29,7 @@ const Sarvises = () => {
                     ></SarvisesCard>)
                 }
             </div>
+          
         </div>
     );
 };
