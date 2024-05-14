@@ -26,7 +26,7 @@ const Checout = () => {
             food_name}
 
         console.log(order);
-        fetch('https://car-doctor-server-nine-gilt.vercel.app/order',{
+        fetch('https://car-doctor-server-nine-gilt.vercel.app//orders',{
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'

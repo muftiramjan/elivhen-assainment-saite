@@ -6,7 +6,7 @@ const PraivhetRout = ({ children }) => {
 
     const { user, loding } = useContext(AoutContext);
 const location =useLocation();
-// console.log(location.pathname)
+console.log(location.pathname)
     if (loding) {
         return <progress className="progress w-56"></progress>
     }

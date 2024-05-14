@@ -16,7 +16,7 @@ const Foods = () => {
         return food.food_name.toLowerCase().includes(searchTerm.toLowerCase());
     });
 
-    // console.log(Foods);
+    console.log(Foods);
 
     const seleteHandle = (e) =>{
         console.log(e.target.value);
