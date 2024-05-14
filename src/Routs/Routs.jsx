@@ -10,6 +10,7 @@ import Carditels from "../pagase/Home/saeveses/Carditels";
 import Myorder from "../pagase/orders/Myorder";
 import Update from "../pagase/orders/Update";
 import Foods from "../pagase/Foods";
+import Foodditals from "../pagase/Foodditals";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
             {
                 path: "/Foods",
                 element: <Foods></Foods>
+            },
+            {
+                path: "/Foodditals/:id",
+                element: <Foodditals></Foodditals>,
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${params.id}`)
             },
             {
                 path: "/update",

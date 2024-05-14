@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Food = ({ food }) => {
-    const { castmarname,email, donator_image,food_image,date, pickup_location,food_name,
+    const {_id, castmarname,email, donator_image,food_image,date, pickup_location,food_name,
         additional_notes  } = food;
     return (
         <div >
@@ -15,8 +16,7 @@ const Food = ({ food }) => {
                     <h2 className="">{date}</h2>
                     <h2 className="">{pickup_location}</h2>
                     <h2 className="">{additional_notes}</h2>
-                   
-                        <button className='btn-accent bg-orange-300 rounded p-3'>View Details</button>
+                        <Link to={`/Foodditals/${_id}`}className='btn-accent bg-orange-300 rounded p-3'>View Details</Link>
                    
                 </div>
             </div>
