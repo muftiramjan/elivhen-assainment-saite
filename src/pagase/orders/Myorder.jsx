@@ -8,7 +8,7 @@ const Myorder = () => {
     const { user } = useContext(AoutContext);
     const [orders, setorders] = useState([]);
 
-    const url = `http://localhost:5000/orders?email=${user?.email}`;
+    const url = `https://car-doctor-server-nine-gilt.vercel.app/orders?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -20,7 +20,7 @@ const Myorder = () => {
     const handeledelete = id => {
         const proceed = confirm('ar you seour of delete');
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -37,7 +37,7 @@ const Myorder = () => {
     }
 
     const handeleconfrim = id => {
-        fetch(`http://localhost:5000/orders/${id}`,{
+        fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${id}`,{
             method:"PATCH",
             headers:{
                 'content-type': 'application/json'

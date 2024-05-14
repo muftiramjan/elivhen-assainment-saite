@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: "/update",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${params.id}`)
 
             },
             {
@@ -49,12 +49,12 @@ const router = createBrowserRouter([
             {
                 path: "/checout/:id",
                 element: <PraivhetRout><Checout></Checout></PraivhetRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/carServes/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes/${params.id}`)
             },
             {
                 path: "/checoutt/:id",
                 element: <PraivhetRout><Carditels></Carditels></PraivhetRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/carServes/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes/${params.id}`)
             },
             
 

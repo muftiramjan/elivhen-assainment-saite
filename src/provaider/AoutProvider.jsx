@@ -36,7 +36,7 @@ const AoutProvider = ({ children }) => {
             setLoding(false)
             // if (currentcuser) {
             //     const loggrUser={ email: currentcuser.email}
-            //     axios.post('http://localhost:5000/jwt',loggrUser,{withCredentials: true })
+            //     axios.post('https://car-doctor-server-nine-gilt.vercel.app/jwt',loggrUser,{withCredentials: true })
             //         .then(res => {
             //             console.log('token res pons',res.data);
             //         })

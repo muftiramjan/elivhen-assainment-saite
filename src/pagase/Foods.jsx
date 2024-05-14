@@ -5,7 +5,7 @@ const Foods = () => {
     const [Foods, setFoods] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/orderss')
+        fetch('https://car-doctor-server-nine-gilt.vercel.app/orderss')
         .then(res => res.json())
         .then(data => setFoods(data))
     }, [])
@@ -16,7 +16,7 @@ const Foods = () => {
         return food.food_name.toLowerCase().includes(searchTerm.toLowerCase());
     });
 
-    console.log(Foods);
+    // console.log(Foods);
 
     const seleteHandle = (e) =>{
         console.log(e.target.value);

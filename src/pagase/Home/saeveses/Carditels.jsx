@@ -7,7 +7,7 @@ const Carditels = () => {
     const service = useLoaderData();
     const { food_image, food_name, _id ,food_quantity,expired_datetime,additional_notes,pickup_location,} = service;
     console.log(service);
-    fetch(`http://localhost:5000/carServes/${_id}`, {
+    fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes/${_id}`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

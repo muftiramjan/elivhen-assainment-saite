@@ -28,7 +28,7 @@ const Update = () => {
         }
         console.log(order);
         // const handeleconfrim = id => {
-            fetch(`http://localhost:5000/orders/${id}`,{
+            fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${id}`,{
                 method:"PATCH",
                 headers:{
                     'content-type': 'application/json'
