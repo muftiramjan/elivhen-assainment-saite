@@ -5,22 +5,8 @@ import { AoutContext } from '../provaider/AoutProvider';
 const Foodditals = () => {
     const { user } = useContext(AoutContext);
     const Foods = useLoaderData();
-    const { food_image, food_name, _id, food_quantity, expired_datetime, additional_notes, pickup_location, } = Foods;
+    const { food_image, food_name, _id, food_quantity, expired_datetime, additional_notes, pickup_location, } =Foods;
     console.log(Foods);
-    fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${_id}`, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify(Foods)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.insertedId) {
-                alert('order confarmeteded')
-            }
-        })
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">

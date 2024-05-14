@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: "/Foodditals/:id",
                 element: <Foodditals></Foodditals>,
-                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/available/${params.id}`)
             },
             {
                 path: "/update",
