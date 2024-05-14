@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Checout = () => {
     const servis = useLoaderData();
-    const { donator_name, food_image,food_name,food_quantity,additional_notes,pickup_location,donator_image} = servis;
+    const { donator_name, food_image,food_name,food_quantity,additional_notes,pickup_location,} = servis;
     const { user } = useContext(AoutContext);
     const handelorder = e => {
         e.preventDefault();
@@ -26,7 +26,7 @@ const Checout = () => {
             food_name}
 
         console.log(order);
-        fetch('https://car-doctor-server-nine-gilt.vercel.app//orders',{
+        fetch('https://car-doctor-server-nine-gilt.vercel.app/order',{
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'
@@ -58,7 +58,7 @@ const Checout = () => {
                             <label className="label">
                                 <span className="label-text">food_image</span>
                             </label>
-                            <input type="food_image" name='food_image' defaultValue={food_image} className="input input-bordered"  />
+                            <input name='food_image' defaultValue={food_image} className="input input-bordered"  />
 
                         </div>
                         <div className="form-control">
