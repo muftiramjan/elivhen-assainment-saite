@@ -5,6 +5,7 @@ import { motion, useScroll } from "framer-motion"
 
 const Sarvises = () => {
     const { scrollYProgress } = useScroll();
+    
     const [cards, setCard] = useState([]);
     useEffect(() => {
         fetch('https://car-doctor-server-nine-gilt.vercel.app/carServes')
@@ -41,7 +42,6 @@ const Sarvises = () => {
                     cards.map(card => <SarvisesCard
                         key={card._id}
                         card={card}
-
                     ></SarvisesCard>)
                 }
             </div>

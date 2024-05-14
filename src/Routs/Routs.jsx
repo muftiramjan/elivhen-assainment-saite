@@ -12,7 +12,6 @@ import Update from "../pagase/orders/Update";
 import Foods from "../pagase/Foods";
 
 
-
 const router = createBrowserRouter([
     {
         path: "/",
