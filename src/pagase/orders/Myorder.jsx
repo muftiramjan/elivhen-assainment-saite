@@ -3,6 +3,7 @@ import { AoutContext } from '../../provaider/AoutProvider';
 import Myorderrow from './Myorderrow';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const Myorder = () => {
     const { user } = useContext(AoutContext);
@@ -61,6 +62,11 @@ const Myorder = () => {
         return (
             <div>
                 <p>order :{orders.length}</p>
+                <div>
+				<Helmet>
+					<title>Myorder</title>
+				</Helmet>
+			</div>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
@@ -89,9 +95,6 @@ const Myorder = () => {
                                     handeleconfrim={handeleconfrim}
                                 ></Myorderrow>)
                             }
-
-
-
                         </tbody>
 
 

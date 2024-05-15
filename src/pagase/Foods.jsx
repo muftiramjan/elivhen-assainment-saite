@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Food from './Food';
+import { Helmet } from 'react-helmet-async';
 
 const Foods = () => {
     const [Foods, setFoods] = useState([]);
@@ -31,6 +32,9 @@ const Foods = () => {
 
     return (
         <>
+        <Helmet>
+					<title>AvailableFoods</title>
+				</Helmet>
             <div className='flex items-center justify-around bg-slate-400 w-100%'>
                 <input
                     type="text"
