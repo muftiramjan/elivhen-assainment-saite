@@ -72,7 +72,7 @@ const Sarvises = () => {
                     <br /> integrates into every aspect of our lives, serving as an essential component of our existence.
                 </motion.p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-5 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 lg:p-5 lg:max-w-7xl lg:mx-auto">
                 {
                     currentCards.map(card => (
                         <SarvisesCard
