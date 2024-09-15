@@ -10,16 +10,16 @@ const googleProvaider = new GoogleAuthProvider()
 const AoutProvider = ({ children }) => {
     const [user, setuser] = useState(null);
     const [loding, setLoding] = useState(true);
-    const createuser = (email, password) => {
+    const createUser = (email, password) => {
         setLoding(true)
         return createUserWithEmailAndPassword(Auth, email, password)
 
     }
-    const signin = (email, password) => {
+    const signIn = (email, password) => {
         setLoding(true)
         return signInWithEmailAndPassword(Auth, email, password)
     }
-    const GoogleLogin = () => {
+    const googleLogin = () => {
         setLoding(true)
         return signInWithPopup(Auth, googleProvaider)
     }
@@ -32,11 +32,10 @@ const AoutProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(Auth, currentcuser => {
             setuser(currentcuser);
-            console.log('currentuser', currentcuser);
             setLoding(false)
             // if (currentcuser) {
             //     const loggrUser={ email: currentcuser.email}
-            //     axios.post('https://car-doctor-server-nine-gilt.vercel.app/jwt',loggrUser,{withCredentials: true })
+            //     axios.post('http://localhost:5000/jwt',loggrUser,{withCredentials: true })
             //         .then(res => {
             //             console.log('token res pons',res.data);
             //         })
@@ -50,10 +49,10 @@ const AoutProvider = ({ children }) => {
     const Aoutinfo = {
         user,
         loding,
-        createuser,
-        signin,
+        createUser,
+        signIn,
         logOut,
-        GoogleLogin
+        googleLogin
     }
     return (
         <AoutContext.Provider value={Aoutinfo}>

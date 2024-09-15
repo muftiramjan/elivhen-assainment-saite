@@ -3,14 +3,17 @@ import Main from "../Leout/Main";
 import Home from "../pagase/Home/Home";
 import Login from "../pagase/Login/Login";
 import SingUp from "../pagase/singup/SingUp";
-import Checout from "../pagase/cecoutpagase/Checout";
 import PraivhetRout from "./PraivhetRout";
 import Error from "../pagase/Error/Error";
-import Carditels from "../pagase/Home/saeveses/Carditels";
-import Myorder from "../pagase/orders/Myorder";
 import Update from "../pagase/orders/Update";
 import Foods from "../pagase/Foods";
 import Foodditals from "../pagase/Foodditals";
+import AddFood from "../pagase/AddFood/AddFood";
+import MyFoodRequest from "../pagase/orders/MyFoodRequest";
+import ManageFood from "../pagase/orders/ManageFood";
+import CardDetails from "../pagase/Home/saeveses/CardDetails";
+import MeetOurTeam from "../pagase/Home/MeetOurTeam/MeetOurTeam";
+import RequestFood from "../pagase/Request/RequestFood";
 
 
 const router = createBrowserRouter([
@@ -29,7 +32,7 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: "/singup",
+                path: "/singUp",
                 element: <SingUp></SingUp>
             },
             {
@@ -37,32 +40,46 @@ const router = createBrowserRouter([
                 element: <Foods></Foods>
             },
             {
+                path: "/ManageFood",
+                element: <ManageFood></ManageFood>
+            },
+            {
                 path: "/Foodditals/:id",
                 element: <Foodditals></Foodditals>,
-                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/available/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/available/${params.id}`)
             },
             {
-                path: "/update",
+                path: "/update/:id",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/singleOrders/${params.id}`)
 
             },
+            
             {
-                path: "/myorder",
-                element: <PraivhetRout><Myorder></Myorder></PraivhetRout>
+                path: "/MyFoodRequest",
+                element: <PraivhetRout><MyFoodRequest></MyFoodRequest></PraivhetRout>
             },
             {
-                path: "/checout/:id",
-                element: <PraivhetRout><Checout></Checout></PraivhetRout>,
-                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes/${params.id}`)
+                path: "/AddFood",
+                element: <PraivhetRout><AddFood></AddFood></PraivhetRout>,
+                loader: () => fetch(`http://localhost:5000/carServes`)
+            },
+            {
+                path: "/requestFood/:id",
+                element: <RequestFood></RequestFood>,
+                loader: ({ params }) => fetch(`http://localhost:5000/singleOrders/${params.id}`)
+            },
+            {
+                path: "/AddFood/:id",
+                element: <PraivhetRout><AddFood></AddFood></PraivhetRout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/carServes/${params.id}`)
             },
             {
                 path: "/checoutt/:id",
-                element: <PraivhetRout><Carditels></Carditels></PraivhetRout>,
-                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes/${params.id}`)
+                element: <PraivhetRout><CardDetails></CardDetails></PraivhetRout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/singleOrders/${params.id}`)
             },
             
-
         ]
     },
 ]);

@@ -1,125 +1,120 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AoutContext } from '../../provaider/AoutProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AoutContext } from '../../provaider/AoutProvider';
+
 const Update = () => {
-    const servis = useLoaderData();
-    const { donator_name, food_image,  food_quantity, additional_notes, pickup_location } = servis;
+    const service = useLoaderData();
     const { user } = useContext(AoutContext)
-    const {orders ,setorders}=useState([]);
-    const handeleconfrim = e => {
+    const { donator_name, food_image, food_quantity, additional_notes, pickup_location } = service;
+
+    const handleConfirm = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = user?.email;
         const donator_image = form.donator_image.value;
-        const food_image = form.food_image.value;
-        const food_quantity = form.food_quantity.value;
+        const foodImg = form.food_image.value;
+        const foodQty = form.food_quantity.value;
         const date = form.date.value;
-        const additional_notes = form.additional_notes.value;
-        const pickup_location = form.pickup_location.value;
+        const notes = form.additional_notes.value;
+        const location = form.pickup_location.value;
 
         const order = {
-            castmarname: name,
-            email, donator_image, food_quantity, date, additional_notes, pickup_location, food_image
+            name,
+            email,
+            donator_image,
+            food_image: foodImg,
+            food_quantity: foodQty,
+            date,
+            additional_notes: notes,
+            pickup_location: location,
+        };
 
-
-        }
-        console.log(order);
-        // const handeleconfrim = id => {
-            fetch(`https://car-doctor-server-nine-gilt.vercel.app/orders/${id}`,{
-                method:"PATCH",
-                headers:{
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({status: 'confrim'})
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.modifiedCount){
-                        // updet
-                        const remaining = orders.filter(order => order._id !== id)
-                        const update =orders.find(order => order._id === id)
-                        update.status= 'confrim'
-                        const neworders=[update,...remaining];
-                        setorders(neworders)
-    
-                    }
-                })
+        fetch(`http://localhost:5000/updateFood/${service._id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(order),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.modifiedCount) {
+                toast.success('Updated successfully!');
+            } else {
+                toast.error('Please change something to update');
             }
-        
+        })
+        .catch(err => {
+            console.error(err);
+            toast.error('An error occurred while updating the order.');
+        });
+    };
+
     return (
         <div>
             <p>{donator_name}</p>
             <div className="card-body">
-                <form onSubmit={handeleconfrim}>
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <form onSubmit={handleConfirm}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">customerName </span>
+                                <span className="label-text">Customer Name</span>
                             </label>
-                            <input type="text" name='name' defaultValue={user?.displayName} className="input input-bordered" />
+                            <input type="text" name="name" placeholder="User Name" defaultValue={user?.displayName || ''} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">food_image</span>
+                                <span className="label-text">Food Image</span>
                             </label>
-                            <input type="food_image" name='food_image' defaultValue={food_image} className="input input-bordered" />
-
+                            <input type="text" name="food_image" placeholder="Food Image URL" defaultValue={food_image || ''} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' defaultValue={user?.email} className="input input-bordered" />
+                            <input type="email" name="email" defaultValue={user?.email || ''} className="input input-bordered" readOnly />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">donator_image</span>
+                                <span className="label-text">Donator Image</span>
                             </label>
-                            <input name='donator_image' defaultValue={user?.photoURL} className="input input-bordered" />
-
+                            <input type="text" name="donator_image" placeholder="Donator Image URL" defaultValue={user?.photoURL || ''} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">food_quantity</span>
+                                <span className="label-text">Food Quantity</span>
                             </label>
-                            <input type="food_quantity" name='food_quantity' defaultValue={food_quantity} className="input input-bordered" />
+                            <input type="text" name="food_quantity" placeholder="Food Quantity" defaultValue={food_quantity || ''} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">date</span>
+                                <span className="label-text">Date</span>
                             </label>
-                            <input type="date" name='date' className="input input-bordered" />
-
+                            <input type="date" name="date" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">additional_notes</span>
+                                <span className="label-text">Additional Notes</span>
                             </label>
-                            <input type="additional_notes" name='additional_notes' defaultValue={additional_notes} className="input input-bordered" />
+                            <input type="text" name="additional_notes" placeholder="Additional Notes" defaultValue={additional_notes || ''} className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">pickup_location</span>
+                                <span className="label-text">Pickup Location</span>
                             </label>
-                            <input type="pickup_location" name='pickup_location' defaultValue={pickup_location} className="input input-bordered" />
-
+                            <input type="text" name="pickup_location" placeholder="Pickup Location" defaultValue={pickup_location || ''} className="input input-bordered" />
                         </div>
-
                     </div>
                     <div className="form-control mt-6">
-                        <input  className="btn btn-primary" type="submit" value="submit" />
+                        <input className="btn btn-outline border-b-8 border-t-8 border-[1px] border-green-600" type="submit" value="Submit" />
                     </div>
                 </form>
-                <ToastContainer />
             </div>
+            <ToastContainer />
         </div>
-
-
-
     );
 };
 

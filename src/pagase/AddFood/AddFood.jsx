@@ -3,9 +3,9 @@ import { useLoaderData } from 'react-router-dom';
 import { AoutContext } from '../../provaider/AoutProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Checout = () => {
+const AddFood = () => {
     const servis = useLoaderData();
-    const { donator_name, food_image, food_name, food_quantity, additional_notes, pickup_location, } = servis;
+    const { donator_name, food_image, food_name, food_quantity, additional_notes, pickup_location,} = servis;
     const { user } = useContext(AoutContext);
     const handelorder = e => {
         e.preventDefault();
@@ -16,13 +16,13 @@ const Checout = () => {
         const food_image = form.food_image.value;
         const food_name = form.food_name.value;
         const food_quantity = form.food_quantity.value;
-        const date = form.date.value;
+        const expired_datetime = form.date.value;
         const additional_notes = form.additional_notes.value;
         const pickup_location = form.pickup_location.value;
 
         const order = {
-            castmarname: donator_name, donator_image,
-            email, food_quantity, date, additional_notes, pickup_location, food_image,
+            donator_name, donator_image,
+            email, food_quantity, expired_datetime, additional_notes, pickup_location, food_image,
             food_name
         }
 
@@ -38,7 +38,7 @@ const Checout = () => {
                 {
                     console.log(data);
                     if (data.insertedId) {
-                        toast.success('database storege  sussecfull')
+                        toast.success('database storege  successfully')
                     }
                 }
             })
@@ -110,7 +110,7 @@ const Checout = () => {
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn btn-outline border-b-8 border-[1px] border-green-600" type="submit" value="submit" />
+                        <input className="btn btn-outline border-b-8 border-t-8 border-[1px] border-green-600" type="submit" value="submit" />
                     </div>
                 </form>
                 <ToastContainer />
@@ -122,4 +122,4 @@ const Checout = () => {
     );
 };
 
-export default Checout;
+export default AddFood;
