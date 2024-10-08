@@ -32,7 +32,7 @@ const Update = () => {
             pickup_location: location,
         };
 
-        fetch(`http://localhost:5000/updateFood/${service._id}`, {
+        fetch(`https://car-doctor-server-nine-gilt.vercel.app/updateFood/${service._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

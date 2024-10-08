@@ -26,7 +26,7 @@ const Checout = () => {
             food_name
         }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://car-doctor-server-nine-gilt.vercel.app/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -36,7 +36,7 @@ const Checout = () => {
             .then(res => res.json())
             .then(data => {
                 {
-                    console.log(data);
+                    // console.log(data);
                     if (data.insertedId) {
                         toast.success('database storege  sussecfull')
                     }

@@ -8,7 +8,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 
 const deleteOrder = async (id) => {
-  const { data } = await axios.delete(`http://localhost:5000/orders/${id}`);
+  const { data } = await axios.delete(`https://car-doctor-server-nine-gilt.vercel.app/orders/${id}`);
   return data;
 };
 

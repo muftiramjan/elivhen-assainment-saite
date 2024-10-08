@@ -42,7 +42,7 @@ const RequestFood = () => {
 
     try {
       // Post order data to the backend
-      const response = await fetch("http://localhost:5000/request", {
+      const response = await fetch("https://car-doctor-server-nine-gilt.vercel.app/request", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

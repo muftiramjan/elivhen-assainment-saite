@@ -46,12 +46,12 @@ const router = createBrowserRouter([
             {
                 path: "/Foodditals/:id",
                 element: <Foodditals></Foodditals>,
-                loader: ({ params }) => fetch(`http://localhost:5000/available/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/available/${params.id}`)
             },
             {
                 path: "/update/:id",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singleOrders/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/singleOrders/${params.id}`)
 
             },
             
@@ -62,22 +62,22 @@ const router = createBrowserRouter([
             {
                 path: "/AddFood",
                 element: <PraivhetRout><AddFood></AddFood></PraivhetRout>,
-                loader: () => fetch(`http://localhost:5000/carServes`)
+                loader: () => fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes`)
             },
             {
                 path: "/requestFood/:id",
                 element: <RequestFood></RequestFood>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singleOrders/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/singleOrders/${params.id}`)
             },
             {
                 path: "/AddFood/:id",
                 element: <PraivhetRout><AddFood></AddFood></PraivhetRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/carServes/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/carServes/${params.id}`)
             },
             {
                 path: "/checoutt/:id",
                 element: <PraivhetRout><CardDetails></CardDetails></PraivhetRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singleOrders/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-doctor-server-nine-gilt.vercel.app/singleOrders/${params.id}`)
             },
             
         ]

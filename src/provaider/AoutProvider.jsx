@@ -33,13 +33,7 @@ const AoutProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(Auth, currentcuser => {
             setuser(currentcuser);
             setLoding(false)
-            // if (currentcuser) {
-            //     const loggrUser={ email: currentcuser.email}
-            //     axios.post('http://localhost:5000/jwt',loggrUser,{withCredentials: true })
-            //         .then(res => {
-            //             console.log('token res pons',res.data);
-            //         })
-            // }
+           
         });
         return () => {
             return unsubscribe();

@@ -19,7 +19,7 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 if(user.providerId){
                     alert('User created successfully');
                     navigate('/login');  

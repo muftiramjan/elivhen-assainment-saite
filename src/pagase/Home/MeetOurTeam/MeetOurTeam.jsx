@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 const fetchMraqueeData = async () => {
-    const { data } = await axios.get('http://localhost:5000/mraquee');
+    const { data } = await axios.get('https://car-doctor-server-nine-gilt.vercel.app/mraquee');
     return data;
 };
 

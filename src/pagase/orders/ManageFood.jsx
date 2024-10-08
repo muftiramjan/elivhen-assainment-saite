@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 const fetchOrders = async () => {
-    const { data } = await axios.get('http://localhost:5000/order');
+    const { data } = await axios.get('https://car-doctor-server-nine-gilt.vercel.app/order');
     return data;
 };
 

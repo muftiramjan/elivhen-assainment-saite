@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const fetchOrders = async ({ queryKey }) => {
     const [, email] = queryKey;
-    const { data } = await axios.get(`http://localhost:5000/request?email=${email}`, { withCredentials: true });
+    const { data } = await axios.get(`https://car-doctor-server-nine-gilt.vercel.app/request?email=${email}`, { withCredentials: true });
     return data;
 };
 

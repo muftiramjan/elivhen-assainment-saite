@@ -28,7 +28,7 @@ const SendMessage = () => {
 
         setLoading(true);
         setError('');
-        axios.post('http://localhost:5000/send-message', { message })
+        axios.post('https://car-doctor-server-nine-gilt.vercel.app/send-message', { message })
             .then(response => {
                 toast.success('Message sent successfully!');
                 setMessage(''); 

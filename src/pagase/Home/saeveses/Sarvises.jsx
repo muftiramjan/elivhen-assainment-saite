@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
 
 const fetchCarServes = async () => {
-    const { data } = await axios.get('http://localhost:5000/orderss');
+    const { data } = await axios.get('https://car-doctor-server-nine-gilt.vercel.app/orderss');
     return data;
 };
 
